@@ -1,12 +1,14 @@
 <script setup>
-import {createFunctions} from "./helpers/functions-creator";
+import {generateApiClasses} from "./helpers/class-generator";
 
-const api = createFunctions()
+const api = generateApiClasses()
 </script>
 
 <template>
   <div>
-    <pre>{{ api }}</pre>
+    <div v-for="item in api">
+      <pre>{{ item }}</pre>
+    </div>
   </div>
 </template>
 
