@@ -589,8 +589,8 @@ describe('api-generator', () => {
         }
         const key = '/api/v1/call/count'
         const key2 = '/api/v1/call/info/{call_id}'
-        expect(generateApiObject(path, key)).toStrictEqual({"dynamicPath": "", "functionName": "postcall", "method": "post","module": "call","path": "/call/count"})
-        expect(generateApiObject(path2, key2)).toStrictEqual({"dynamicPath": "{call_id}", "functionName": "getcall", "method": "get","module": "call","path": "/call/info/"})
+        expect(generateApiObject(path, key)).toStrictEqual({"dynamicPath": "", "functionName": "addCallCount", "method": "post","module": "call","path": "/call/count"})
+        expect(generateApiObject(path2, key2)).toStrictEqual({"dynamicPath": "{call_id}", "functionName": "getCallInfo", "method": "get","module": "call","path": "/call/info/"})
     })
     it('return dynamic path of url', () => {
         const path = '/call/info/{call_id}'

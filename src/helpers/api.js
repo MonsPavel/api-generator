@@ -1,10 +1,18 @@
 import api from '../api-file/api.json'
+import { fromCapitalLetter, getPrefix } from './helpers';
 
 export const getApiPathsKeys = (obj) => Object.keys(obj)
 export const isNotVersionOrPrefix = (item) => !(item === 'api' || (item.includes('v') && item.length === 2))
 export const trimPath = (path) => path.split('/').filter(item => isNotVersionOrPrefix(item)).join('/')
-// TODO: improve function name function
-export const setFunctionName = (method, module) => `${method}${module}`
+export const setFunctionName = (method, module, trimmedPath, dynamicPath) => {
+    const prefix = getPrefix(method)
+    let main = ''
+    trimmedPath.split('/').filter(item => item !== '/').forEach(item => {
+        main = main + fromCapitalLetter(item)
+    })
+    const postfix = dynamicPath ? 'ById' : ''
+    return prefix + main + postfix
+}
 export const getDynamicPath = (path) => {
     const from = path.search('{')
     const to = path.length
