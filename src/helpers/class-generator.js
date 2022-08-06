@@ -22,5 +22,5 @@ export const generateApiClasses = () => {
         classes.push(generateClass(className, functions[className]))
     }
 
-    return classes
+    return { classes, classNames }
 }

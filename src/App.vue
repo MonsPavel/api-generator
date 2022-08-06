@@ -1,21 +1,26 @@
 <script setup>
 import { generateApiClasses } from './helpers/class-generator';
+import { fromCapitalLetter } from './helpers/helpers';
+
+import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
-const api = generateApiClasses()
+const { classes, classNames } = generateApiClasses()
 
-
-const saveFiles = () => {
-  for(let i = 0, len = api.length; i < len; i += 1) {
-    let blob = new Blob([api[i]], {type: "text/plain;charset=utf-8"})
-    saveAs(blob, `api-${i}.js`)
+const saveFiles = async () => {
+  const zip = new JSZip()
+  for(let i = 0, len = classes.length; i < len; i += 1) {
+    zip.file(`${fromCapitalLetter(classNames[i])}.js`, classes[i])
   }
+  zip.generateAsync({ type: 'blob' }).then(content => {
+    saveAs(content, 'download.zip');
+  })
 }
 </script>
 
 <template>
   <div>
-    <div v-for="item in api">
+    <div v-for="item in classes">
       <pre>{{ item }}</pre>
     </div>
     <button @click="saveFiles()">Скачать</button>
