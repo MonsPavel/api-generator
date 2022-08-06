@@ -7,14 +7,14 @@ export const createGetFunction = (apiObj) => {
     if(dynamicPath) {
         return `
             ${functionName}(${dynamicPath.match(regex).join('')}, params, config = {}) {
-                const url = ${path}$${dynamicPath};
+                const url = \`${path}$${dynamicPath}\`;
                 return this.request('GET', url, { params, ...config });
               }
         `
     } else {
         return `
             ${functionName}(params, config = {}) {
-                const url = ${path};
+                const url = \`${path}\`;
                 return this.request('GET', url, { params, ...config });
               }
         `
@@ -25,7 +25,7 @@ export const createPostFunction = (apiObj) => {
     const { functionName, path } = apiObj
     return `
             ${functionName}(data, config = {}) {
-                const url = ${path};
+                const url = \`${path}\`;
                 return this.request('POST', url, { data, ...config });
               }
         `
@@ -35,7 +35,7 @@ export const createDeleteFunction = (apiObj) => {
     const { functionName, path } = apiObj
     return `
         ${functionName}(data, config = {}) {
-            const url = ${path};
+            const url = \`${path}\`;
             return this.request('DELETE', url, { data, ...config });
         }
     `
@@ -46,14 +46,14 @@ export const createPatchFunction = (apiObj) => {
     if(dynamicPath) {
         return `
         ${functionName}(${dynamicPath.match(regex).join('')}, data, config = {}) {
-            const url = ${path};
+            const url = \`${path}\`;
             return this.request('PATCH', url, { data, ...config });
         }
     `
     } else {
         return `
             ${functionName}(data, config = {}) {
-                const url = ${path};
+                const url = \`${path}\`;
                 return this.request('PATCH', url, { data, ...config });
             }
         `
