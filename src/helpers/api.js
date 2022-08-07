@@ -1,5 +1,5 @@
 import api from '../api-file/api.json'
-import { fromCapitalLetter, getPrefix } from './helpers';
+import { fromCapitalLetter, getPrefix } from './helpers'
 
 export const getApiPathsKeys = (obj) => Object.keys(obj)
 export const isNotVersionOrPrefix = (item) => !(item === 'api' || (item.includes('v') && item.length === 2))

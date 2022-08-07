@@ -1,13 +1,12 @@
-import {createFunctions} from "./functions-creator";
-import {fromCapitalLetter} from "./helpers";
+import { createFunctions } from './functions-creator'
+import { fromCapitalLetter } from './helpers'
 
 export const generateClass = (className, functions) => {
-    return `
-        import { BaseApi } from './BaseApi';
-        
-        export class ${fromCapitalLetter(className)}Api extends BaseApi {
-            ${functions.join('')}
-        }
+    return `import { BaseApi } from './BaseApi';
+
+export class ${fromCapitalLetter(className)}Api extends BaseApi {
+    ${functions.join('')}
+}
     `
 }
 

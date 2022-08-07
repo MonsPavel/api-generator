@@ -1,5 +1,4 @@
-export const BaseApi = `
-import axiosInstance from './axios'
+export const BaseApi = `import axiosInstance from './axios'
 
 export class BaseApi {
     endpointPrefix = 'api'
