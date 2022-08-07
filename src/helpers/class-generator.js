@@ -10,8 +10,8 @@ export class ${fromCapitalLetter(className)}Api extends BaseApi {
     `
 }
 
-export const generateApiClasses = () => {
-    const functions = createFunctions()
+export const generateApiClasses = (file) => {
+    const functions = createFunctions(file)
     const classNames = Object.keys(functions)
 
     const classes = []
