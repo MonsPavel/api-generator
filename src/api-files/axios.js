@@ -1,5 +1,4 @@
-export const axios = `
-import axios from 'axios'
+export const axios = `import axios from 'axios'
 
 // TODO: baseUrl Functional
 const baseURL = '/'

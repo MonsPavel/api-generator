@@ -18,7 +18,7 @@ const saveFiles = async () => {
     zip.file(`${fromCapitalLetter(classNames[i])}.js`, classes[i])
   }
   zip.generateAsync({ type: 'blob' }).then(content => {
-    saveAs(content, 'api.zip');
+    saveAs(content, 'api.zip')
   })
 }
 </script>
