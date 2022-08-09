@@ -27,7 +27,7 @@ export const generateApiObject = (obj, path) => {
     const method = Object.keys(obj[path])[0]
     return {
         functionName: setFunctionName(method, module, trimmedPath),
-        path: trimmedPath,
+        path: trimmedPath.replace(`/${module}`, ''),
         dynamicPath,
         module,
         method

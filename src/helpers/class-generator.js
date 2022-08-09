@@ -5,6 +5,8 @@ export const generateClass = (className, functions) => {
     return `import { BaseApi } from './BaseApi';
 
 export class ${fromCapitalLetter(className)}Api extends BaseApi {
+    endpoint = '${className}'
+
     ${functions.join('')}
 }
     `
