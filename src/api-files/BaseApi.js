@@ -5,10 +5,12 @@ export class BaseApi {
     
     endpoint = '';
 
-    // TODO: realise version functional
+    constructor(version = 'v1') {
+        this.version = version;
+    }
 
     getUrl(path) {
-        let fullUrl = [ this.endpointPrefix, this.endpoint, path ]
+        let fullUrl = [ this.endpointPrefix, this.version, this.endpoint, path ]
             .filter(Boolean)
             .join('/');
 
