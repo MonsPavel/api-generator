@@ -61,7 +61,6 @@ export const createPatchFunction = (apiObj) => {
 }
 
 export const createFunctions = (file) => {
-    console.log(file)
     const paths = getPathsForApiFiles(file)
     const functions = {}
     for(let i = 0, len = paths.length; i < len; i += 1) {
