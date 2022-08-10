@@ -5,7 +5,7 @@ export class BaseApi {
     
     endpoint = '';
 
-    constructor(version = 'v1') {
+    constructor(version = '') {
         this.version = version;
     }
 
